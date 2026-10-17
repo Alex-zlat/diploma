@@ -21,6 +21,7 @@ import '../../models/device_with_frequencies.dart';
 import '../../services/audio_player_service.dart';
 import '../charts/charts_screen.dart';
 import '../devices/frequency_detail_screen.dart';
+import '../../services/chart_data_service.dart';
 
 
 class MonitorScreen extends StatefulWidget {
@@ -76,7 +77,10 @@ class _MonitorScreenState extends State<MonitorScreen> {
     final List<DeviceWithFrequencies> tempList = [];
 
     for (final device in devices) {
-      final frequencies = await _storage.getFrequenciesForDevice(device.id!);
+      final frequencies = (await _storage.getFrequenciesForDevice(device.id!))
+          .map(ChartDataService.fillMockCurrentValues)
+          .toList();
+
       tempList.add(DeviceWithFrequencies(
         device: device,
         frequencies: frequencies,
@@ -130,12 +134,20 @@ class _MonitorScreenState extends State<MonitorScreen> {
   }
 
   bool _calculateUpDownStatus(Frequency frequency) {
-    return frequency.isUp; // для теста устанавливали true;
+    if (frequency.currentRSSI == null || frequency.currentVolume == null) {
+      return false;
+    }
+    final rssiOk = frequency.currentRSSI! >= frequency.thresholdRSSI;
+    final volumeOk = frequency.currentVolume! >= frequency.thresholdVolume;
+    final captureOk = !frequency.trackCapture || frequency.currentCapture == 1;
+    return rssiOk && volumeOk && captureOk;
   }
 
   String _formatParameters(Frequency frequency) {
-    // ВСЕГДА ПОКАЗЫВАЕМ ПОРОГИ (даже если 0)
-    return '${frequency.thresholdRSSI}/${frequency.thresholdVolume}/${frequency.thresholdLR}%';
+    final capture = frequency.currentCapture ?? 0;
+    final rssi = frequency.currentRSSI ?? '—';
+    final volume = frequency.currentVolume ?? '—';
+    return '$capture/$rssi/$volume';
   }
 
   Future<void> _toggleCircularPlayback(DeviceWithFrequencies dwf) async {

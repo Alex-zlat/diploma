@@ -195,4 +195,15 @@ class ChartDataService {
 
     return mockData;
   }
+
+  // Заполнение текущих значений для карточки мониторинга (mock)
+  static Frequency fillMockCurrentValues(Frequency freq) {
+    return freq.copyWith(
+      currentRSSI: (30 + (freq.frequency % 40)).toInt(),
+      currentVolume: (50 + (freq.frequency % 50)).toInt(),
+      currentCapture: 1,
+      isUp: true,
+    );
+  }
+
 }
