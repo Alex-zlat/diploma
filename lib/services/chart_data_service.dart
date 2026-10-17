@@ -61,7 +61,7 @@ class DeviceOnlineData {
 class ChartDataService {
   static const String baseUrl = 'https://radiostate.zlat.ru/Chart';
 
-  // === РЕАЛЬНЫЕ ЗАПРОСЫ К СЕРВЕРУ ===
+  // РЕАЛЬНЫЕ ЗАПРОСЫ К СЕРВЕРУ
 
   // Получить данные об Online времени устройства
   // URL: /Chart/DeviceOnlineTime/{deviceId}
@@ -129,8 +129,8 @@ class ChartDataService {
     }
   }
 
-  // === ЗАГЛУШКА ДЛЯ ДЕМОНСТРАЦИИ (пока нет API) ===
-  // В реальном приложении УДАЛИТЬ этот метод
+  // ЗАГЛУШКА ДЛЯ ДЕМОНСТРАЦИИ (пока нет API)
+  // В реальном приложении этот метод удалю
 
   static List<ChartDataPoint> getMockStationData(
       List<Frequency> frequencies,

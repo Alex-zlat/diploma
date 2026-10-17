@@ -16,7 +16,7 @@ class EditFrequencyScreen extends StatefulWidget {
   final int returnPage;
   final String returnScreen;
   final Device? device;
-  final int frequencyPage;     // ← НОВОЕ
+  final int frequencyPage;
 
   const EditFrequencyScreen({
     Key? key,
@@ -25,7 +25,7 @@ class EditFrequencyScreen extends StatefulWidget {
     this.returnPage = 0,
     this.returnScreen = 'monitor',
     this.device,
-    this.frequencyPage = 0,    // ← НОВОЕ
+    this.frequencyPage = 0,
   }) : super(key: key);
 
   @override
@@ -47,7 +47,7 @@ class _EditFrequencyScreenState extends State<EditFrequencyScreen> {
 
   final _formKey = GlobalKey<FormState>();
 
-  // ✅ ФЛАГ ДЛЯ ОТСЛЕЖИВАНИЯ ИЗМЕНЕНИЙ
+  // Флаг для отслеживания изменений
   bool _hasChanges = false;
 
   @override
@@ -62,14 +62,14 @@ class _EditFrequencyScreenState extends State<EditFrequencyScreen> {
     _thresholdLR = widget.frequency.thresholdLR;
     _trackCapture = widget.frequency.trackCapture;
 
-    // ✅ ОТСЛЕЖИВАЕМ ИЗМЕНЕНИЯ В ПОЛЯХ
+    // Отслеживаем изменения в полях
     _frequencyController.addListener(_onChanged);
     _nameController.addListener(_onChanged);
     _emailController.addListener(_onChanged);
     _streamUrlController.addListener(_onChanged);
   }
 
-  // ✅ МЕТОД ВЫЗЫВАЕТСЯ ПРИ ЛЮБОМ ИЗМЕНЕНИИ В ПОЛЯХ
+  // Метод вызывается при любом изменении в полях
   void _onChanged() {
     if (!_hasChanges) {
       setState(() {
@@ -78,7 +78,7 @@ class _EditFrequencyScreenState extends State<EditFrequencyScreen> {
     }
   }
 
-  // ✅ ПРОВЕРКА, БЫЛИ ЛИ ИЗМЕНЕНИЯ
+  // проверка, были изменения или нет
   bool _checkForChanges() {
     if (!_hasChanges) return false;
 
@@ -102,7 +102,7 @@ class _EditFrequencyScreenState extends State<EditFrequencyScreen> {
     return false;
   }
 
-  // ✅ ДИАЛОГ ПОДТВЕРЖДЕНИЯ ПРИ ВЫХОДЕ
+  // Диалог подтверждения при выходе
   Future<bool?> _showSaveDialog() async {
     return await showDialog<bool>(
       context: context,
@@ -130,7 +130,7 @@ class _EditFrequencyScreenState extends State<EditFrequencyScreen> {
     );
   }
 
-  // ✅ ОБРАБОТКА ВЫХОДА С ПРОВЕРКОЙ ИЗМЕНЕНИЙ
+  // Обработка выхода с проверкой изменений
   Future<bool?> _handleExit() async {
     if (_checkForChanges()) {
       final result = await _showSaveDialog();
@@ -394,14 +394,14 @@ class _EditFrequencyScreenState extends State<EditFrequencyScreen> {
               );
             } else if (index == 1) {  // Устройства
               if (widget.device != null && widget.returnScreen == 'devices') {
-                // ✅ ВОЗВРАТ В ТО ЖЕ УСТРОЙСТВО, НА ТУ ЖЕ СТРАНИЦУ ЧАСТОТ
+                // Возврат в то же устройство, на ту же страницу частот
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
                     builder: (_) => DeviceFrequenciesScreen(
                       device: widget.device!,
-                      returnPage: widget.returnPage,      // ← страница списка устройств
-                      initialPage: widget.frequencyPage,  // ← НОВОЕ: страница списка частот
+                      returnPage: widget.returnPage,      // страница списка устройств
+                      initialPage: widget.frequencyPage,  // страница списка частот
                     ),
                   ),
                 );

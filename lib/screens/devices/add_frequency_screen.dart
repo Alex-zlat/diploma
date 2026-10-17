@@ -41,7 +41,7 @@ class _AddFrequencyScreenState extends State<AddFrequencyScreen> {
         thresholdLR: _thresholdLR,
         streamUrl: _streamUrlController.text.trim().isEmpty
             ? null
-            : _streamUrlController.text.trim(),  // ← НОВОЕ
+            : _streamUrlController.text.trim(),
       );
 
       await _storage.addFrequency(widget.deviceId, newFrequency);

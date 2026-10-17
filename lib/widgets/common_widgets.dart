@@ -4,7 +4,7 @@
 
 import 'package:flutter/material.dart';
 
-// ============ 1. Футер с меню ============
+// 1. Футер с меню
 class AppBottomNavigationBar extends StatelessWidget {
   final int currentIndex;
   final Function(int) onTap;
@@ -38,7 +38,7 @@ class AppBottomNavigationBar extends StatelessWidget {
   }
 }
 
-// ============ 2. Кружок выхода (сверху справа) ============
+// 2. Кружок выхода (сверху справа)
 class LogoutCircleButton extends StatelessWidget {
   const LogoutCircleButton({Key? key}) : super(key: key);
 
@@ -66,7 +66,7 @@ class LogoutCircleButton extends StatelessWidget {
   }
 }
 
-// ============ 3. Виджет для ввода таймаута со стрелками ============
+// 3. Виджет для ввода таймаута со стрелками
 class TimeoutInputWithArrows extends StatefulWidget {
   final String title;
   final String hint;
@@ -179,7 +179,7 @@ class _TimeoutInputWithArrowsState extends State<TimeoutInputWithArrows> {
   }
 }
 
-// ============ 4. Диалоговое окно 1: Удаление устройства ============
+// 4. Диалоговое окно 1: удаление устройства
 Future<void> showDeleteDeviceDialog(
     BuildContext context, {
       required int deviceId,
@@ -212,7 +212,7 @@ Future<void> showDeleteDeviceDialog(
   );
 }
 
-// ============ 5. Диалоговое окно 2: Удаление частоты ============
+// 5. Диалоговое окно 2: удаление частоты
 Future<void> showDeleteFrequencyDialog(
     BuildContext context, {
       required int frequencyId,

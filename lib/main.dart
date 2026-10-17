@@ -155,11 +155,11 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
         // Экран графиков (требует передачи device)
         '/charts': (context) {
-          // ВНИМАНИЕ: этот маршрут больше не используется напрямую
+          // Этот маршрут больше не используется напрямую
           // Графики открываются через Navigator.push с передачей device и frequency
           // Оставляем для обратной совместимости
           final device = ModalRoute.of(context)?.settings.arguments as Device;
-          return const SizedBox.shrink(); // или можно вернуть заглушку
+          return const SizedBox.shrink(); // (либо еще можно вернуть заглушку)
         },
       },
       onUnknownRoute: (settings) {

@@ -1,7 +1,3 @@
-// ============================================================
-// ФАЙЛ 3: device_frequencies_screen.dart
-// ============================================================
-
 // ЭКРАН 6: Устройство: [название устройства]
 // Список радиочастот для конкретного устройства (карточки)
 // Позволяет добавлять, редактировать, удалять частоты
@@ -393,9 +389,9 @@ class _DeviceFrequenciesScreenState extends State<DeviceFrequenciesScreen> {
                             deviceId: widget.device.id!,
                             frequency: freq,
                             device: widget.device,
-                            returnPage: widget.returnPage,   // ← страница списка устройств (исправить!)
+                            returnPage: widget.returnPage,   // страница списка устройств (исправить!)
                             returnScreen: 'devices',
-                            frequencyPage: _currentPage,     // ← НОВОЕ: страница списка частот
+                            frequencyPage: _currentPage,     // страница списка частот
                           ),
                         ),
                       );
@@ -437,7 +433,7 @@ class _DeviceFrequenciesScreenState extends State<DeviceFrequenciesScreen> {
     );
   }
 
-  // ПАГИНАЦИЯ (всегда 1-3 страницы в зоне видимости)
+  // Пагинация (всегда 1-3 страницы в зоне видимости)
   Widget _buildPagination() {
     List<int> visiblePages = [];
 

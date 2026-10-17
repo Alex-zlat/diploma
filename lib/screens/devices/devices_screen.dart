@@ -1,7 +1,3 @@
-// ============================================================
-// ФАЙЛ 2: devices_screen.dart
-// ============================================================
-
 // ЭКРАН 1: Список устройств
 // Отображает карточки всех устройств пользователя
 // Позволяет добавить, редактировать, удалить устройство
@@ -18,7 +14,7 @@ import 'edit_device_screen.dart';
 import '../monitor/monitor_screen.dart';
 
 class DevicesScreen extends StatefulWidget {
-  final int initialPage;  // ← для возврата на ту же страницу
+  final int initialPage;  // для возврата на ту же страницу
 
   const DevicesScreen({Key? key, this.initialPage = 0}) : super(key: key);
 
@@ -31,7 +27,7 @@ class _DevicesScreenState extends State<DevicesScreen> {
   List<Device> _devices = [];
   bool _isLoading = true;
 
-  // ✅ ПАГИНАЦИЯ (убедитесь, что эта строка есть!)
+  // Пагинация
   int _currentPage = 0;
 
   int get _totalDevices => _devices.length;
@@ -49,7 +45,7 @@ class _DevicesScreenState extends State<DevicesScreen> {
   @override
   void initState() {
     super.initState();
-    // ✅ Устанавливаем страницу СРАЗУ при инициализации
+    // Устанавливаем страницу сразу при инициализации
     _currentPage = widget.initialPage;
     _loadDevices();
   }
@@ -354,7 +350,7 @@ class _DevicesScreenState extends State<DevicesScreen> {
     );
   }
 
-  // ПАГИНАЦИЯ (всегда 1-3 страницы в зоне видимости)
+  // Пагинация (всегда 1-3 страницы в зоне видимости)
   Widget _buildPagination() {
     List<int> visiblePages = [];
 

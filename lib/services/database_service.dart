@@ -7,7 +7,7 @@ class DatabaseService {
   factory DatabaseService() => _instance;
   DatabaseService._internal();
 
-  // ============ ПОЛЬЗОВАТЕЛИ ============
+  // Пользователи
 
   Future<bool> userExists(String email) async {
     final users = StorageService.getUsers();
@@ -54,7 +54,7 @@ class DatabaseService {
     return null;
   }
 
-  // ============ УСТРОЙСТВА (С ПРИВЯЗКОЙ К ПОЛЬЗОВАТЕЛЮ) ============
+  // Устройства (с привязкой к пользователю)
 
   Future<List<Map<String, dynamic>>> getDevicesForUser(int userId) async {
     final prefs = await SharedPreferences.getInstance();
@@ -94,7 +94,7 @@ class DatabaseService {
     return null;
   }
 
-  // ============ ЧАСТОТЫ (заглушки) ============
+  // Частоты (заглушки)
 
   Future<List<Map<String, dynamic>>> getFrequenciesForDevice(int deviceId) async {
     return [];

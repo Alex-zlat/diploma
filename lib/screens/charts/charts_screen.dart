@@ -98,8 +98,8 @@ class _ChartsScreenState extends State<ChartsScreen> {
   }
 
   Future<void> _loadChartData() async {
-    // === РЕАЛЬНЫЕ ЗАПРОСЫ К СЕРВЕРУ ===
-    // Раскомментировать, когда API готов
+    // РЕАЛЬНЫЕ ЗАПРОСЫ К СЕРВЕРУ
+    // Раскомментирую, когда API будет готов
 
     /*
     _onlineData = await _dataService.getDeviceOnlineTime(widget.device.id!);
@@ -116,7 +116,7 @@ class _ChartsScreenState extends State<ChartsScreen> {
 
     */
 
-    // === ЗАГЛУШКА ДЛЯ ДЕМОНСТРАЦИИ ===
+    // ЗАГЛУШКА ДЛЯ ДЕМОНСТРАЦИИ
     await Future.delayed(const Duration(milliseconds: 500));
     _onlineData = ChartDataService.getMockDeviceOnlineData();
     _volumeData = ChartDataService.getMockStationData(_frequencies, StationChartType.volume);
@@ -197,7 +197,7 @@ class _ChartsScreenState extends State<ChartsScreen> {
 
     return LineChart(
       LineChartData(
-        // ✅ 3. СЕТКА: жестко привязываем вертикальные линии к меткам времени
+        // 3. СЕТКА: жестко привязываем вертикальные линии к меткам времени
         gridData: FlGridData(
           show: true,
           drawVerticalLine: true,
@@ -255,7 +255,7 @@ class _ChartsScreenState extends State<ChartsScreen> {
 
                 // Показываем первую, последнюю и шаговые метки
                 if (isFirst || isLast || isStep) {
-                  // ✅ Сдвигаем ТОЛЬКО последнюю метку (23)
+                  // Сдвигаем только последнюю метку (23)
                   if (isLast) {
                     return Transform.translate(
                       offset: const Offset(-10, 0), // <-- ПАРАМЕТР: двигать влево/вправо
@@ -276,7 +276,7 @@ class _ChartsScreenState extends State<ChartsScreen> {
               },
             ),
           ),
-          // ✅ 2. ПОДПИСЬ "ЧАСЫ" внутри графика справа
+          // 2. ПОДПИСЬ "ЧАСЫ" внутри графика справа
           topTitles: AxisTitles(
             sideTitles: SideTitles(
               showTitles: true,
@@ -322,7 +322,7 @@ class _ChartsScreenState extends State<ChartsScreen> {
           ),
         ],
         minY: 0,
-        // ✅ 1. ПАРАМЕТР ДЛЯ ДВИЖЕНИЯ "1" ВВЕРХ/ВНИЗ:
+        // 1. ПАРАМЕТР ДЛЯ ДВИЖЕНИЯ "1" ВВЕРХ/ВНИЗ:
         // Увеличиваем maxY до 1.15. Это создает "пустое" пространство сверху.
         // Чем БОЛЬШЕ число (например, 1.2), тем НИЖЕ опускается единица.
         // Чем МЕНЬШЕ число (например, 1.05), тем ВЫШЕ поднимается единица.
@@ -621,7 +621,7 @@ class _ChartsScreenState extends State<ChartsScreen> {
           if (index == 1) {
             Navigator.pushReplacementNamed(context, '/devices');
           } else if (index == 2) {
-            // ✅ ПЕРЕХОД НА ПРОФИЛЬ
+            // ПЕРЕХОД НА ПРОФИЛЬ
             Navigator.pushReplacementNamed(context, '/profile');
           }
         },

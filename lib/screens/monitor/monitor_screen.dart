@@ -341,7 +341,7 @@ class _MonitorScreenState extends State<MonitorScreen> {
 
     return InkWell(
       onTap: () async {
-        // ✅ ПОЛУЧАЕМ СВЕЖИЕ ДАННЫЕ ИЗ ХРАНИЛИЩА
+        // ПОЛУЧАЕМ СВЕЖИЕ ДАННЫЕ ИЗ ХРАНИЛИЩА
         final freshFreq = await _getFreshFrequency(freq.id!);
         if (freshFreq == null) return;
 
@@ -374,7 +374,7 @@ class _MonitorScreenState extends State<MonitorScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // ✅ СЕРАЯ СТРОКА (только город и динамик)
+              // СЕРАЯ СТРОКА (только город и динамик)
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
@@ -579,7 +579,7 @@ class _MonitorScreenState extends State<MonitorScreen> {
         if (index == 1) {
           Navigator.pushReplacementNamed(context, '/devices');
         } else if (index == 2) {
-          // ✅ ПЕРЕХОД НА ПРОФИЛЬ
+          // ПЕРЕХОД НА ПРОФИЛЬ
           Navigator.pushReplacementNamed(context, '/profile');
         }
       },

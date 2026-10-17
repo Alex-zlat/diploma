@@ -100,7 +100,7 @@ class RegistrationConfirmScreen extends StatelessWidget {
   }
 }
 
-/* === КОД ДЛЯ РЕАЛЬНОГО API (deep link) ===
+/* КОД ДЛЯ РЕАЛЬНОГО API (deep link)
  *
  * Пользователь получает письмо со ссылкой вида:
  * radiomonitor://verify-email?email=user@example.com&token=abc123

@@ -36,7 +36,7 @@ class FrequencyDetailScreen extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context); // ← Просто делаем шаг назад по стеку навигации
+            Navigator.pop(context); // Делаем шаг назад по стеку навигации
           },
         ),
         actions: const [LogoutCircleButton()],
@@ -81,8 +81,8 @@ class FrequencyDetailScreen extends StatelessWidget {
                       builder: (_) => EditFrequencyScreen(
                         deviceId: device.id!,
                         frequency: frequency,
-                        returnPage: returnPage,      // ← Передаем страницу, на которой были
-                        returnScreen: returnScreen,  // ← Передаем 'monitor' или 'devices'
+                        returnPage: returnPage,      // Передаем страницу, на которой были
+                        returnScreen: returnScreen,  // Передаем 'monitor' или 'devices'
                       ),
                     ),
                   );
@@ -95,8 +95,8 @@ class FrequencyDetailScreen extends StatelessWidget {
                           builder: (_) => FrequencyDetailScreen(
                             device: device,
                             frequency: updatedFreq,
-                            returnPage: returnPage,       // ← ДОБАВИТЬ
-                            returnScreen: returnScreen,   // ← ДОБАВИТЬ
+                            returnPage: returnPage,
+                            returnScreen: returnScreen,
                           ),
                         ),
                       );
@@ -113,7 +113,7 @@ class FrequencyDetailScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: AppBottomNavigationBar(
-        currentIndex: returnScreen == 'devices' ? 1 : 0,  // ← правильная подсветка
+        currentIndex: returnScreen == 'devices' ? 1 : 0,  // подсветка
         onTap: (index) {
           if (index == 0) {
             // ← переход на Монитор (всегда страница 1)
@@ -147,7 +147,7 @@ class FrequencyDetailScreen extends StatelessWidget {
     );
   }
 
-  // НОВЫЙ МЕТОД
+  //
   Future<Frequency?> _getUpdatedFrequency(int id) async {
     final storage = LocalStorageService();
     return await storage.getFrequency(id);

@@ -23,7 +23,7 @@ class LocalStorageService {
     _prefs = await SharedPreferences.getInstance();
   }
 
-  // ============ РАБОТА С УСТРОЙСТВАМИ (С ПРИВЯЗКОЙ К ПОЛЬЗОВАТЕЛЮ) ============
+  // Работа с устройствами (с привязкой к пользователю)
 
   String _getDevicesKey(int userId) => '${_devicesKeyPrefix}$userId';
 
@@ -98,7 +98,7 @@ class LocalStorageService {
     return null;
   }
 
-  // ============ РАБОТА С ЧАСТОТАМИ ============
+  // Работа с частотами
 
   String _getFrequenciesKey(int deviceId) => '${_frequenciesKey}$deviceId';
 
@@ -156,7 +156,7 @@ class LocalStorageService {
     await _prefs!.remove(_getFrequenciesKey(deviceId));
   }
 
-  // ============ РАБОТА С СЕССИЕЙ ПОЛЬЗОВАТЕЛЯ ============
+  // Работа с сессией пользователя
 
   // Сохранить сессию пользователя (С userId)
   Future<void> saveUserSession(String email, String token, {bool rememberMe = true, int? userId}) async {
@@ -220,7 +220,7 @@ class LocalStorageService {
     await _prefs!.remove(_userIdKey);
   }
 
-// ============ ДЛЯ ЗАМЕНЫ НА API (КОГДА ПОЯВИТСЯ) ============
+// Для замены на API (когда появится) ============
 /*
   // Вместо LocalStorageService создадим ApiService:
 
@@ -303,9 +303,9 @@ class LocalStorageService {
   }
 
   // Заменим так:
-  // 1. Убрать sharedPrefsService из всех файлов
-  // 2. Добавить apiService через dependency injection
-  // 3. Заменить вызовы: getDevices() -> apiService.getDevices()
-  // 4. При login: сохранять токен через LocalStorageService().saveUserSession()
+  // 1. Уберем sharedPrefsService из всех файлов
+  // 2. Добавим apiService через dependency injection
+  // 3. Заменим вызовы: getDevices() -> apiService.getDevices()
+  // 4. При login: сохранять токен будем через LocalStorageService().saveUserSession()
   */
 }

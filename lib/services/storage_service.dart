@@ -6,12 +6,12 @@ class StorageService {
 
   static void saveUsers(List<String> users) {
     html.window.localStorage[_usersKey] = jsonEncode(users);
-    print('💾 Сохранено ${users.length} пользователей');
+    print('Сохранено ${users.length} пользователей');
   }
 
   static List<String> getUsers() {
     final data = html.window.localStorage[_usersKey];
-    print('📖 Чтение из localStorage: "$data"');
+    print('Чтение из localStorage: "$data"');
 
     if (data == null || data.isEmpty) {
       return [];
@@ -24,7 +24,7 @@ class StorageService {
       }
       return [];
     } catch (e) {
-      print('❌ Ошибка чтения пользователей: $e');
+      print('Ошибка чтения пользователей: $e');
 
       // Поддержка старого формата (если там еще старые данные)
       if (data.contains('|')) {
@@ -36,6 +36,6 @@ class StorageService {
 
   static void clearUsers() {
     html.window.localStorage.remove(_usersKey);
-    print('🗑️ Пользователи удалены');
+    print('Пользователи удалены');
   }
 }

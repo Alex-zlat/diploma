@@ -65,7 +65,7 @@ class _RecoveryNewPasswordScreenState extends State<RecoveryNewPasswordScreen> {
 
     setState(() => _isLoading = true);
 
-    // === ЗАГЛУШКА: имитация отправки на сервер ===
+    // ЗАГЛУШКА: имитация отправки на сервер
     await Future.delayed(const Duration(seconds: 1));
     print('Пароль обновлен для email: ${widget.email}');
     print('Новый пароль: $newPassword');
@@ -77,12 +77,12 @@ class _RecoveryNewPasswordScreenState extends State<RecoveryNewPasswordScreen> {
         builder: (context) => const RecoverySuccessScreen(),
       ),
     );
-    // === КОНЕЦ ЗАГЛУШКИ ===
+    // КОНЕЦ ЗАГЛУШКИ
 
     setState(() => _isLoading = false);
   }
 
-  /* === КОД ДЛЯ РЕАЛЬНОГО API ===
+  /* КОД ДЛЯ РЕАЛЬНОГО API
   Future<void> _updatePasswordReal() async {
     setState(() {
       _passwordError = null;

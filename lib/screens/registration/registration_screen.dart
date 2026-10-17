@@ -108,7 +108,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         _generalError = 'Ошибка соединения. Проверьте интернет и попробуйте позже.';
         _isLoading = false;
       });
-      print('❌ Ошибка регистрации: $e');
+      print('Ошибка регистрации: $e');
     }
   }
 
@@ -231,7 +231,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
                 const SizedBox(height: 32),
 
-                // === ОБЩАЯ ОШИБКА (НАД КНОПКОЙ) ===
+                // Общая ошибка (над кнопкой)
                 if (_generalError != null)
                   Container(
                     padding: const EdgeInsets.all(12),

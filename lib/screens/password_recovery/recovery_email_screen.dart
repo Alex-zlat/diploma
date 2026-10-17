@@ -54,7 +54,7 @@ class _RecoveryEmailScreenState extends State<RecoveryEmailScreen> {
         _errorMessage = 'Ошибка соединения. Попробуйте позже.';
         _isLoading = false;
       });
-      print('❌ Ошибка восстановления пароля: $e');
+      print('Ошибка восстановления пароля: $e');
     }
   }
 

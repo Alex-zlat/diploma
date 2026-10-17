@@ -126,7 +126,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
         _errorMessage = 'Ошибка соединения. Попробуйте позже.';
         _isLoading = false;
       });
-      print('❌ Ошибка входа: $e');
+      print('Ошибка входа: $e');
     }
   }
 
